@@ -1,0 +1,278 @@
+/* বেসিক স্টাইল */
+html {
+    scroll-behavior: smooth;
+}
+
+:root {
+    /* লাইট মোড ভেরিয়েবল (ডিফল্ট) */
+    --bg-color: #f4f0e8;
+    --card-bg-color: #fafafa;
+    --section-bg-color: #ffffff;
+    --text-color: #333;
+    --text-color-light: #555;
+    --border-color: #eee;
+    --header-text-color: #111;
+    --surprise-bg: #8E44AD;
+    --surprise-hover: #9B59B6;
+    --today-bg: #3498DB; /* নতুন "আজকে" বাটনের রঙ */
+    --today-hover: #2980B9;
+}
+
+/* ডার্ক মোড স্টাইল */
+body.dark-mode {
+    --bg-color: #222;
+    --card-bg-color: #333;
+    --section-bg-color: #2a2a2a;
+    --text-color: #f1f1f1;
+    --text-color-light: #aaa;
+    --border-color: #444;
+    --header-text-color: #fff;
+    --surprise-bg: #9B59B6;
+    --surprise-hover: #8E44AD;
+    --today-bg: #2980B9; /* নতুন "আজকে" বাটনের রঙ (ডার্ক) */
+    --today-hover: #3498DB;
+}
+
+body {
+    font-family: 'Tiro Bangla', serif;
+    background-color: var(--bg-color);
+    color: var(--text-color);
+    line-height: 1.6;
+    margin: 0;
+    padding: 0;
+    padding-top: 60px;
+    transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+/* ন্যাভিগেশন বার */
+.quick-nav {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    background-color: #333;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+    z-index: 1000;
+    padding: 10px 0;
+}
+.nav-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+.nav-links {
+    display: flex;
+    gap: 30px;
+}
+.quick-nav a {
+    color: #fff;
+    text-decoration: none;
+    font-size: 1.1rem;
+    font-weight: bold;
+    padding: 5px 10px;
+    border-radius: 5px;
+    transition: background-color 0.3s ease;
+}
+.quick-nav a:hover {
+    background-color: #555;
+}
+
+/* ডার্ক মোড টগল সুইচ স্টাইল */
+.switch {
+    position: relative;
+    display: inline-block;
+    width: 50px;
+    height: 28px;
+}
+.switch input {
+    opacity: 0;
+    width: 0;
+    height: 0;
+}
+.slider {
+    position: absolute;
+    cursor: pointer;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: #ccc;
+    transition: .4s;
+    border-radius: 28px;
+}
+.slider:before {
+    position: absolute;
+    content: "☀️";
+    height: 20px;
+    width: 20px;
+    left: 4px;
+    bottom: 4px;
+    background-color: white;
+    transition: .4s;
+    border-radius: 50%;
+    text-align: center;
+    line-height: 20px;
+    font-size: 14px;
+}
+input:checked + .slider {
+    background-color: #555;
+}
+input:checked + .slider:before {
+    transform: translateX(22px);
+    content: "🌙";
+}
+
+
+/* হেডার এবং কন্ট্রোলস */
+.main-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 20px;
+}
+header {
+    text-align: center;
+    background-color: var(--section-bg-color);
+    color: var(--header-text-color);
+    padding: 25px;
+    border-radius: 8px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
+    margin-bottom: 30px;
+    transition: background-color 0.3s ease;
+}
+header h1 {
+    margin: 0;
+}
+header p {
+    color: var(--text-color-light);
+}
+.controls {
+    margin-top: 20px;
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+    flex-wrap: wrap; /* ছোট স্ক্রিনে বাটনগুলো নিচে নেমে যাবে */
+}
+.controls input[type="date"] {
+    font-family: 'Tiro Bangla', serif;
+    font-size: 1rem;
+    padding: 8px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+.controls button {
+    font-family: 'Tiro Bangla', serif;
+    font-size: 1rem;
+    padding: 8px 20px;
+    background-color: #333;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+.controls button:hover {
+    background-color: #555;
+}
+
+/* Surprise Me বাটন স্টাইল */
+.surprise-btn {
+    background-color: var(--surprise-bg);
+}
+.surprise-btn:hover {
+    background-color: var(--surprise-hover);
+}
+
+/* "আজকে" বাটন স্টাইল (নতুন) */
+.today-btn {
+    background-color: var(--today-bg);
+}
+.today-btn:hover {
+    background-color: var(--today-hover);
+}
+
+
+/* সার্চ বক্স */
+.search-wrapper {
+    margin-top: 25px;
+}
+.search-wrapper input[type="search"] {
+    font-family: 'Tiro Bangla', serif;
+    font-size: 1rem;
+    padding: 10px;
+    width: 80%;
+    max-width: 500px;
+    border: 1px solid var(--border-color);
+    border-radius: 5px;
+    background-color: var(--card-bg-color);
+    color: var(--text-color);
+    box-shadow: inset 0 1px 3px rgba(0,0,0,0.1);
+}
+
+/* সেকশন এবং কার্ড */
+.history-section {
+    background-color: var(--section-bg-color);
+    border-radius: 8px;
+    padding: 20px;
+    margin-bottom: 20px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
+    scroll-margin-top: 80px;
+    transition: background-color 0.3s ease;
+}
+.history-section h2 {
+    border-bottom: 2px solid var(--border-color);
+    padding-bottom: 10px;
+    color: var(--header-text-color);
+}
+.card-layout {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    gap: 20px;
+}
+.card {
+    border: 1px solid var(--border-color);
+    border-radius: 8px;
+    padding: 15px;
+    background-color: var(--card-bg-color);
+    color: var(--text-color);
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.05);
+    opacity: 0;
+    transform: translateY(20px);
+    animation: fadeIn 0.5s ease forwards;
+    transition: transform 0.3s ease, box-shadow 0.3s ease, opacity 0.3s ease, background-color 0.3s ease;
+}
+.card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 15px rgba(0, 0, 0, 0.1);
+}
+.card.hidden {
+    opacity: 0.1;
+    transform: scale(0.95);
+    pointer-events: none;
+}
+.card-year {
+    font-size: 1.5rem;
+    font-weight: bold;
+    color: var(--header-text-color);
+}
+.card-text {
+    margin: 10px 0;
+    color: var(--text-color-light);
+}
+.card-link {
+    font-size: 0.9rem;
+    color: #007bff;
+    text-decoration: none;
+    font-weight: bold;
+}
+.card-link:hover {
+    text-decoration: underline;
+}
+@keyframes fadeIn {
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
